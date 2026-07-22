@@ -1,0 +1,24 @@
+.git
+.env
+.DS_Store
+airflow_settings.yaml
+__pycache__/
+astro
+.venv
+.astro/standalone/
+airflow-webserver.pid
+webserver_config.py
+airflow.cfg
+airflow.db
+.astro/*.local.yml
+.astro/*.local.yaml
+
+# Generated project files
+include/data/raw/
+dbt/triplens_dbt/target/
+dbt/triplens_dbt/logs/
+dbt/triplens_dbt/dbt_packages/
+*.pyc
+.pytest_cache/
+
+dbt/logs/

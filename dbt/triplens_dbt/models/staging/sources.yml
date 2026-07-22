@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: TRIPLENS_DB
+    schema: RAW
+    tables:
+      - name: country_api_raw
+        identifier: COUNTRY_API_RAW

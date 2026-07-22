@@ -1,0 +1,123 @@
+version: 2
+
+models:
+  - name: dim_country
+    columns:
+      - name: country_key
+        data_tests:
+          - not_null
+          - unique
+
+      - name: country_name
+        data_tests:
+          - not_null
+
+  - name: dim_currency
+    columns:
+      - name: currency_key
+        data_tests:
+          - not_null
+          - unique
+
+      - name: currency_code
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_language
+    columns:
+      - name: language_key
+        data_tests:
+          - not_null
+          - unique
+
+      - name: language_name
+        data_tests:
+          - not_null
+
+  - name: dim_timezone
+    columns:
+      - name: timezone_key
+        data_tests:
+          - not_null
+          - unique
+
+      - name: timezone
+        data_tests:
+          - not_null
+          - unique
+
+  - name: bridge_country_currency
+    columns:
+      - name: country_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_key
+
+      - name: currency_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_currency')
+                field: currency_key
+
+  - name: bridge_country_language
+    columns:
+      - name: country_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_key
+
+      - name: language_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_language')
+                field: language_key
+
+  - name: bridge_country_timezone
+    columns:
+      - name: country_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_key
+
+      - name: timezone_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_timezone')
+                field: timezone_key
+
+  - name: bridge_country_border
+    columns:
+      - name: country_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_key
+
+  - name: fact_country_profile
+    columns:
+      - name: country_key
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_key
