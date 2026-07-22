@@ -22,3 +22,5 @@ dbt/triplens_dbt/dbt_packages/
 .pytest_cache/
 
 dbt/logs/
+
+dbt/triplens_dbt/.user.yml
